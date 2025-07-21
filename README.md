@@ -59,19 +59,65 @@ The percentage of rounds where each model successfully executes a trade. This me
 
 ## Multi-Pass TrueSkill Leaderboard
 
-We computed ratings through 200 random passes over 5,000 games, shuffling the game order on every pass to eliminate sequence bias. The final μ (skill) and σ (uncertainty) are medians across all passes:
+We computed ratings through 200 random passes over ~2,000 games, shuffling the game order on every pass to eliminate sequence bias. The final μ (skill) and σ (uncertainty) are medians across all passes:
 
-| Rank | Model             | μ      | σ     | Games | Avg CSα |
-| ---: | :---------------- | -----: | ----: | ----: | ------: |
-|    1 | GPT-4o (2024-05-13) |  2.847 | 0.068 | 2,512 |    0.91 |
-|    2 | Claude 3 Opus     |  2.413 | 0.074 | 2,388 |    0.85 |
-|    3 | GPT-4 Turbo       |  2.156 | 0.071 | 2,456 |    0.80 |
-|    4 | Gemini 1.5 Pro    |  1.892 | 0.082 | 2,234 |    0.72 |
-|    5 | Claude 3.5 Sonnet |  1.678 | 0.079 | 2,367 |    0.69 |
-|    6 | GPT-3.5 Turbo     |  0.234 | 0.091 | 2,123 |    0.41 |
-|    7 | Gemini 1.0 Pro    | -0.156 | 0.095 | 1,989 |    0.29 |
-|    8 | Claude 3 Haiku    | -0.412 | 0.103 | 1,876 |    0.20 |
-*TrueSkill parameters: mu=5.0, sigma=8.333, beta=4.1667, tau=0.0*
+| Model | μ | σ | games | avg_csa |
+|---|---|---|---|---|
+| o3 (medium reasoning) | 7.37 | 0.24 | 393 | 0.369 |
+| Gemini 2.5 Pro | 7.20 | 0.25 | 371 | 0.368 |
+| Gemini 2.5 Flash | 7.16 | 0.24 | 412 | 0.394 |
+| Claude Sonnet 4 (no reasoning) | 7.09 | 0.29 | 280 | 0.293 |
+| Grok 4 | 6.91 | 0.24 | 403 | 0.284 |
+| Claude Opus 4 Thinking 16K | 6.86 | 0.25 | 376 | 0.343 |
+| o4-mini (medium reasoning) | 6.77 | 0.26 | 342 | 0.231 |
+| DeepSeek R1 05/28 | 6.55 | 0.27 | 328 | 0.254 |
+| Claude Opus 4 (no reasoning) | 6.53 | 0.27 | 319 | 0.211 |
+| Qwen 3 235B A22B | 6.52 | 0.28 | 303 | 0.256 |
+| Claude Sonnet 4 Thinking 16K | 6.34 | 0.23 | 414 | 0.162 |
+| GPT-4o Mar 2025 | 5.89 | 0.26 | 328 | 0.119 |
+| Enhanced Bayesian (Baseline) | 5.69 | 0.03 | 23893 | 0.105 |
+| Threat Tit-for-Tat (Baseline) | 5.57 | 0.03 | 23992 | 0.060 |
+| Momentum (Baseline) | 5.57 | 0.03 | 23877 | 0.097 |
+| Stochastic Shading Bandit (Baseline) | 5.54 | 0.03 | 24069 | 0.049 |
+| Contrarian (Baseline) | 5.51 | 0.03 | 24021 | 0.050 |
+| Llama 4 Maverick | 5.51 | 0.26 | 330 | -0.087 |
+| Regime Switcher (Baseline) | 5.41 | 0.03 | 23962 | 0.031 |
+| Sniper (Baseline) | 5.39 | 0.03 | 24141 | 0.038 |
+| GDX (Baseline) | 5.38 | 0.03 | 23716 | 0.042 |
+| Risk-Aware (Baseline) | 5.30 | 0.03 | 24234 | 0.090 |
+| Signal Jammer (Baseline) | 5.28 | 0.03 | 24120 | 0.012 |
+| Regression (Baseline) | 5.28 | 0.03 | 24146 | 0.021 |
+| ZIC+ (Baseline) | 5.26 | 0.03 | 23865 | 0.009 |
+| Shading +5 (Baseline) | 5.25 | 0.05 | 10636 | 0.013 |
+| Roth-Erev (Baseline) | 5.25 | 0.03 | 23990 | -0.002 |
+| DeepSeek V3-0324 | 5.22 | 0.28 | 297 | -0.105 |
+| Adaptive Aggressive (Baseline) | 5.22 | 0.03 | 23856 | -0.000 |
+| Amazon Nova Pro | 5.22 | 0.32 | 231 | -0.017 |
+| Mean Reversion (Baseline) | 5.15 | 0.03 | 23850 | -0.012 |
+| Adaptive Aggressive Cliff (Baseline) | 5.12 | 0.03 | 24229 | -0.020 |
+| Shading +10 (Baseline) | 5.08 | 0.05 | 10607 | -0.008 |
+| Collusive (Baseline) | 5.05 | 0.03 | 24076 | -0.041 |
+| Claude 3.5 Haiku | 5.03 | 0.28 | 301 | -0.057 |
+| Truthful (Baseline) | 5.03 | 0.05 | 10432 | -0.036 |
+| Qwen 3 30B A3B | 5.02 | 0.28 | 300 | -0.100 |
+| Q-Learning (Baseline) | 4.99 | 0.03 | 23861 | -0.049 |
+| Llama 4 Scout | 4.93 | 0.27 | 317 | -0.166 |
+| GPT-4o mini | 4.85 | 0.28 | 298 | -0.176 |
+| ZIC Pure Biased Activity (Baseline) | 4.83 | 0.03 | 24007 | -0.049 |
+| Mistral Small 3.2 | 4.75 | 0.26 | 327 | -0.209 |
+| Adversarial Exploiter (Baseline) | 4.71 | 0.03 | 23959 | -0.090 |
+| Mistral Medium 3 | 4.71 | 0.27 | 317 | -0.146 |
+| Fictitious Play (Baseline) | 4.62 | 0.03 | 23639 | -0.043 |
+| MiniMax-Text-01 | 4.60 | 0.26 | 329 | -0.203 |
+| Gjerstad-Dickhaut (Baseline) | 4.49 | 0.03 | 24017 | -0.075 |
+| Microsoft Phi-4 | 4.42 | 0.27 | 313 | -0.207 |
+| Kimi K2 | 4.41 | 0.27 | 321 | -0.226 |
+| Penny Jumper (Baseline) | 4.25 | 0.03 | 24057 | -0.148 |
+| Baidu Ernie 4.5 300B A47B | 4.25 | 0.28 | 306 | -0.300 |
+| Gemma 3 27B | 4.15 | 0.40 | 145 | -0.151 |
+| LinearEq (Baseline) | 4.10 | 0.03 | 24172 | -0.147 |
+| Adaptive (Baseline) | 2.41 | 0.03 | 23726 | -0.450 |
+| Random (Baseline) | 2.02 | 0.03 | 23905 | -0.546 |
 
 -----
 
