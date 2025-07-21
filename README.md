@@ -22,7 +22,7 @@ A horizontal bar chart ranks each model by the median TrueSkill μ across many p
 
 A jittered dot plot reveals the full distribution of CSα values for each model. Every dot represents a single seat in a single game. Tight clusters signal consistent strategies, while wide spreads suggest high variance that may excel in some markets yet fail in others.
 
-![CSα distribution](images/CSA_strip.png)
+![CSα distribution](images/csa_strip.png)
 
 ### **Average Bid/Ask Offset**
 
