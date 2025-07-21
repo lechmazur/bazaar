@@ -222,36 +222,6 @@ These are advanced agents with unique goals or wrappers that modify other strate
 
 -----
 
-## Key Findings
-
-#### **Emergent Strategy Spectrum**
-
-The benchmark reveals a rich spectrum of trading strategies emerging from different LLMs:
-
-  * **Conservative Shaders**: Models that consistently bid far below valuations, trading infrequently but profitably.
-  * **Aggressive Truthtellers**: Near-zero offset strategies that maximize trade volume at the expense of margins.
-  * **Adaptive Learners**: Sophisticated strategies that adjust aggressiveness based on market feedback.
-  * **Market Makers**: Balanced approaches that maintain moderate offsets to capture consistent profits.
-
-#### **Distribution Sensitivity**
-
-Model performance varies significantly across value distributions:
-
-  * Top models excel in **heavy-tailed** markets by identifying and capitalizing on extreme value opportunities.
-  * Mid-tier models perform best in **uniform** markets where consistent strategies suffice.
-  * **Correlated** markets challenge all models, as the narrow value ranges compress profit opportunities.
-
-#### **Learning Dynamics**
-
-Round-by-round analysis reveals distinct learning patterns:
-
-  * **GPT-4o** demonstrates rapid market calibration, adjusting its strategy within the first 5-10 rounds.
-  * **Claude models** maintain more stable strategies throughout the game, suggesting different approaches to the exploration vs. exploitation tradeoff.
-  * Several models exhibit **strategy collapse** in later rounds, becoming either overly conservative or aggressive as the game nears its end.
-
-
------
-
 ## About Conditional Surplus Alpha (CSα)
 
 CSα normalizes each agent's surplus against a simple "truthful" baseline—a strategy that always bids exactly its private value. For each market condition (round number, value distribution, and spread), we compare the agent's actual surplus to the mean and standard deviation of truthful baselines under identical conditions. This normalization allows fair comparison across diverse market scenarios, with values clamped to [-5.0, 5.0] to prevent outliers from dominating ratings.
