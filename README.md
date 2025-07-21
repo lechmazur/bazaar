@@ -4,7 +4,7 @@
 
 This benchmark probes fundamental questions about AI economic reasoning: Can LLMs learn bidding strategies through experience? Do they adapt to varying market conditions? How do they balance the tension between aggressive quotes that increase trade probability and conservative quotes that preserve profit margins? By analyzing thousands of games, we reveal the economic instincts of state-of-the-art language models.
 
-The **BAZAAR** challenges Large Language Models to navigate the complexities of a double-auction marketplace, where buyers and sellers must make strategic decisions with incomplete information. Each agent receives a private value and must decide how to quote based solely on the history of previous rounds. No agent can see the current order book or others' private values, creating a realistic test of market intuition and strategic adaptation.
+The **BAZAAR** (<b>B</b>enchmark for <b>A</b>uction-based <b>Z</b>ero-Intelligence and <b>A</b>daptive <b>A</b>gent <b>R</b>esearch) challenges Large Language Models to navigate the complexities of a double-auction marketplace, where buyers and sellers must make strategic decisions with incomplete information. Each agent receives a private value and must decide how to quote based solely on the history of previous rounds. No agent can see the current order book or others' private values, creating a realistic test of market intuition and strategic adaptation.
 
 -----
 
