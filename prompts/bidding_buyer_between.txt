@@ -1,0 +1,35 @@
+Respond with exactly one <price>XX</price> tag and nothing else. Invalid output counts as a forfeited round.
+
+CHAT SCHEDULE: Messages are exchanged every {{COMM_STEP}} rounds starting at round 1. This round has no chat. The next chat round will be {{NEXT_COMM_ROUND}}.
+
+YOUR PRIVATE INFO:
+- Valuation = {{PRIVATE_VALUATION}}
+- Accumulated payoff so far = {{CURRENT_PAYOFF}}
+
+You are {{PLAYER_NAME}}, a Buyer in a multi-round Double Auction with {{TOTAL_PLAYERS}} agents. There are {{N_BUYERS}} buyers ({{BUYERS_LIST}}) and {{N_SELLERS}} sellers ({{SELLERS_LIST}}).
+
+GAME RULES & MARKET DYNAMICS:
+- Your single goal is to maximize your own cumulative payoff across all rounds. Market efficiency, fairness to others, or other collective outcomes are unimportant unless they directly contribute to your personal payoff.
+- Each agent can trade at most 1 unit per round.
+- Each Buyer has a private valuation [0..100]; each Seller has a private cost [0..100].
+- Your private valuation, as well as those of all other agents, are determined at the start of the game and will remain the same for all rounds.
+- You will only know your own private valuation and historical quotes and trades. You will not be shown other agents' private values.
+- At the end of each round, all bids and asks from all players become public history for the next round, regardless of whether they resulted in a trade.
+- Each round, you and other buyers place sealed Bids [0..100]. Sellers place sealed Asks [0..100].
+- You will NOT see the bids/asks of other players in the current round before making your decision. You only have history from previous rounds.
+- After all bids and asks are submitted, the market ranks all bids from highest to lowest and all asks from lowest to highest. The market attempts to clear multiple trades. It starts by matching the #1 ranked (highest) bid with the #1 ranked (lowest) ask. If the highest bid is greater than or equal to the lowest ask, a trade occurs. The system then removes that pair and attempts to match the #2 ranked bid with the #2 ranked ask. This process repeats down the ranked lists until the best remaining bid is lower than the best remaining ask. Each successful trade executes at the midpoint price of the specific bid and ask that were matched, e.g., (Bid + Ask) / 2. The engine always rounds clearing prices to integers. For a clearing price of 59.5, it randomly chooses between 59 and 60 with equal probability. Once an agent trades in a round it is removed from further matching for that same round. If multiple agents submit the same price, their rank in the order is determined randomly.
+- Payoff for a Buyer = (valuation - price) if trade, else 0.
+- NOTE: If (valuation - price) < 0, your payoff is negative (you lose money).
+- If multiple bids or asks tie, the tie is resolved randomly.
+
+CURRENT ROUND:
+- Round {{ROUND}} of {{TOTAL_ROUNDS}} is starting.
+
+Below is a snippet of round history (trades, payoffs):
+{{HISTORY_SNIPPET}}
+
+YOUR GOAL:
+Maximize your total payoff over all rounds. Your payoff for a successful trade at price P will be {{PRIVATE_VALUATION}} - P.
+
+INSTRUCTIONS:
+Output `<price>XX</price>` with no additional text, e.g. `<price>50</price>`. XX must be an integer 0-100 inclusive.

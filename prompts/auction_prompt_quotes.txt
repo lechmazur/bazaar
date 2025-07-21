@@ -1,0 +1,27 @@
+You are given a series of public messages from a multi-round Double Auction game. We only see the Communication Phase broadcasts, not private valuations or bids/asks.
+
+Your task is to extract **up to 20** lines that are the most dramatic, surprising, or comedic. Ignore mild or routine statements. Choose only lines that truly stand out.
+
+**Format**: Output a single strict JSON array of objects. Each object must have the keys:
+
+
+[
+{
+"round": 1,
+"phase": 0,
+"speaker": "B2",
+"quote": "...",
+"rating": 9
+},
+...
+]
+
+Where:
+- **round** = round index (integer ≥1)
+- **phase** = sub-phase index (0 if not applicable)
+- **speaker** = seat label or ID (like "B2", "S1")
+- **quote** = the exact text excerpt (string)
+- **rating** = integer 0..10 indicating how shocking/funny/interesting it is
+
+Return at most 20 objects, in descending order of `rating`. No extra commentary or text.
+
