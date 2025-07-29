@@ -1,4 +1,4 @@
-# <b>BAZAAR:</b> - <b>B</b>enchmark for <b>A</b>uction-based <b>Z</b>ero-Intelligence and <b>A</b>daptive <b>A</b>gent <b>R</b>esearch
+# <b>BAZAAR</b> - <b>B</b>enchmark for <b>A</b>uction-based <b>Z</b>ero-Intelligence and <b>A</b>daptive <b>A</b>gent <b>R</b>esearch
 
 ## Evaluating LLMs in Economic Decision-Making within a Competitive Simulated Market
 
